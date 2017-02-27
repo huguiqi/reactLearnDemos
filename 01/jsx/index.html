@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../../build/react.js"></script>
+    <script src="../../build/react-dom.js"></script>
+    <script src="../../build/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<div id="example2"></div>
+<div id="exampleJSX"></div>
+<div id="example4"></div>
+<div id="example5"></div>
+<div id="example6"></div>
+<div id="example7"></div>
+<div id="example8"></div>
+<div id="example9"></div>
+<script type="text/babel">
+    ReactDOM.render(
+    < h1 > Hello, world! < / h1 >,
+            document.getElementById('example')
+    );
+
+    ReactDOM.render(
+    <marquee direction="right" behavior="alternate" width="200px">向右循环滚动200个象素!!!</marquee>,
+            document.getElementById('example2')
+    );
+
+    //这是js代码
+    var names = ['Alice', 'Emily', 'Kate'];
+
+    ReactDOM.render(
+    //这是html代码
+    <div>
+    {
+        names.map(function (name) {
+        return <div>Hello, {name}!</div>
+    })
+    }
+    </div>,
+            document.getElementById('exampleJSX')
+    );
+
+
+    var arr = [
+            <h1>Hello world!</h1>,
+    <h2>React is great language</h2>,
+    ];
+    ReactDOM.render(
+    <div>{arr}</div>,
+            document.getElementById('example4')
+    );
+
+
+    var a = 3
+    ReactDOM.render(
+    <div>
+    <h1>{1+a}</h1>
+    </div>
+            ,
+            document.getElementById('example5')
+    );
+
+    var i = 1;
+    ReactDOM.render(
+    <div>
+    <h1>{i == 1 ? 'True!' : 'False'}</h1>
+    </div>
+            ,
+            document.getElementById('example7')
+    );
+
+
+    var myStyle = {
+        fontSize: 100,
+        color: '#FF0000'
+    };
+    ReactDOM.render(
+    <h1 style = {myStyle}>我是菜鸟</h1>,
+            document.getElementById('example8')
+    );
+
+
+</script>
+
+
+<script type="text/babel" src="helloworld_react.js"></script>
+</body>
+</html>
+

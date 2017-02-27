@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="../../build/react.js"></script>
+    <script src="../../build/react-dom.js"></script>
+    <script src="../../build/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<div id="example2"></div>
+<div id="example3"></div>
+<div id="example4"></div>
+
+<script type="text/babel">
+    var HelloMessage = React.createClass({
+        render: function() {
+            return <h1>Hello {this.props.name} ,className is {this.props.className}</h1>;
+        }
+    });
+
+    var NodeList = React.createClass({
+        //遍历当前对象所有的子节点下的节点
+        render: function() {
+            return <ol>{
+                React.Children.map(this.props.children,function (child) {
+                return <li>{child}</li>
+            })
+            }</ol>;
+        }
+    });
+
+    ReactDOM.render(
+    <HelloMessage name="sam" className="class1"/>,
+            document.getElementById('example')
+    );
+
+
+    ReactDOM.render(
+    <NodeList>
+    <span>john</span>
+    <span>xiaohei</span>
+    <span>sam</span>
+    </NodeList>,
+            document.getElementById('example2')
+    );
+
+
+    var MyTitle = React.createClass({
+        propTypes: {
+            title: React.PropTypes.string.isRequired,
+        },
+
+        render: function() {
+            return <h1> {this.props.title} </h1>;
+        }
+    });
+
+
+    var data = 123;
+
+    ReactDOM.render(
+    <MyTitle title={data} />,
+            document.getElementById('example3')
+    );
+
+
+
+    var MyPhone = React.createClass({
+        propTypes: {
+            format: React.PropTypes.number.isRequired,
+        },
+
+        render: function() {
+            return <h1> {this.props.value} </h1>;
+        }
+    });
+
+    var MyButton = React.createClass({
+       render:function () {
+           return <button type="input">
+       }
+
+    });
+
+</script>
+
+</body>
+</html>
+
