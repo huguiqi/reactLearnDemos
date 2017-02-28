@@ -13,23 +13,41 @@
 
     var MyTitle = React.createClass({
         getDefaultProps: function () {
+            alert('default');
             return {
                 title: "我是默认标题"
             };
         },
+        getInitialState:function () {
+            alert('init');
+            return {color:'red'};
+        },
         render: function () {
-            return <h4> {this.props.title}</h4>;
+            return <h4 style={this.state}>{this.props.title}</h4>;
+        },
+        componentWillMount:function () {
+            alert('componentWillMount');
+        },
+        componentDidMount:function () {
+            alert('componentDidMount');
+            window.setTimeout(function () {
+                this.setState({color:'green'});
+            }.bind(this),1000);
         }
+
     });
+
 
     ReactDOM.render(
     <MyTitle />,
             document.getElementById('example')
     );
 
-    ReactDOM.render(
-    <MyTitle title = "我是设置的标题" />, document.getElementById('example2')
-    );
+
+
+//    ReactDOM.render(
+//    <MyTitle title = "我是设置的标题" />, document.getElementById('example2')
+//    );
 
 
 </script>
