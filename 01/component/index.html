@@ -10,8 +10,32 @@
 <div id="example2"></div>
 <div id="example3"></div>
 <div id="example4"></div>
+<div id="example5"></div>
+<div id="example6"></div>
+<div id="example7"></div>
 
 <script type="text/babel">
+
+
+
+    function Welcome(props) {
+        return <h1>Hello, {props.name}</h1>;
+    }
+    ReactDOM.render(<Welcome name="sam"/>,document.getElementById('example5'));
+
+    function App() {
+        return (<div>
+                <Welcome name="Sara" />
+                <Welcome name="Cahal" />
+                <Welcome name="Edite" />
+                </div>);
+    }
+
+    ReactDOM.render(
+    <App/>, document.getElementById('example5'));
+
+
+//2, react的推荐写法
     var HelloMessage = React.createClass({
         render: function() {
             return <h1>Hello {this.props.name} ,className is {this.props.className}</h1>;
@@ -25,7 +49,7 @@
                 React.Children.map(this.props.children,function (child) {
                 return <li>{child}</li>
             })
-            }</ol>;
+        }</ol>;
         }
     });
 
@@ -76,11 +100,19 @@
     });
 
     var MyButton = React.createClass({
-       render:function () {
-           return <button type="input">
-       }
+        render:function () {
+            return <div><input type="text" value={this.props.value}/> <input type="submit" value={this.props.title}/></div>;
+        }
 
     });
+
+    ReactDOM.render(
+            <MyButton value="我是输入框" title="发送"/>,document.getElementById('example6')
+    );
+
+    ReactDOM.render(
+    <MyButton value="我是输入框" title="搜索"/>,document.getElementById('example7')
+    );
 
 </script>
 

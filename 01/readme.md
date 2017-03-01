@@ -164,10 +164,40 @@ var myStyle = {
 
 # react组件
 
+## 如何通过js封装成标签组件使用(基于jsx)
+
+    function Welcome(props) {
+        return <h1>Hello, {props.name}</h1>;
+    }
+
+相当于:
+
+    var Welcome = React.createClass(
+    {
+    render:function(){
+        return <h1>Hello, {props.name}</h1>;
+    }
+    });
+
+
+使用js的方式封装的组件:
+
+    ReactDOM.render(<Welcome name="sam"/>,docment.getElementById('example'));
+
  > React 允许将代码封装成组件（component），然后像插入普通 HTML 标签一样，在网页中插入这个组件。
 
 
  React.createClass 方法就用于生成一个组件类,所有组件必须要有render方法,用于输出组件.
+
+ 也可以通过es6的方式,生成组件:
+
+ eg:
+
+    class Greeting extends React.Component {
+    render() {
+     return <h1>Hello, {this.props.name}</h1>;
+        }
+    }
 
 **注意**
 

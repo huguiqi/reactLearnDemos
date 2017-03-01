@@ -23,6 +23,7 @@
             return {color:'red'};
         },
         render: function () {
+            alert('render');
             return <h4 style={this.state}>{this.props.title}</h4>;
         },
         componentWillMount:function () {
@@ -33,15 +34,35 @@
             window.setTimeout(function () {
                 this.setState({color:'green'});
             }.bind(this),1000);
+        },
+        componentWillReceiveProps:function (newProps) {
+            alert('componentWillReceiveProps'+newProps);
         }
 
     });
 
+    var App = React.createClass({
+
+        handleClick() {
+            alert('aaaaa');
+        },
+        render:function () {
+            return <div>Hello,<MyTitle title={this.props.name}/><button onClick={this.handleClick}>点我</button></div>;
+        }
+    });
+
 
     ReactDOM.render(
-    <MyTitle />,
+    <App name='牛逼的'/>,
             document.getElementById('example')
     );
+
+    //当第二次时,就会调用componentWillReceiveProps方法
+    ReactDOM.render(
+    <App name='第二次'/>,
+            document.getElementById('example')
+    );
+
 
 
 
