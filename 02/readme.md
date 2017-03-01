@@ -47,3 +47,10 @@
 
 ## Unmounting
 componentWillUnmount()
+
+
+## 第三天的计划
+
+1. 组件ajax
+2. react 表单与事件
+3. 组件间传值与更新值

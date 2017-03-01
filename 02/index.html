@@ -42,12 +42,20 @@
     });
 
     var App = React.createClass({
-
+        getInitialState:function () {
+            return {name:'sam'};
+        },
         handleClick() {
-            alert('aaaaa');
+//            alert('color'+this.state);
+//            if(this.state.color == 'green'){
+                this.setState({name:"只有state在当前组件是可变的"});
+//            }else {
+//                this.setState({color:'green'});
+//            }
         },
         render:function () {
-            return <div>Hello,<MyTitle title={this.props.name}/><button onClick={this.handleClick}>点我</button></div>;
+            this.handleClick = this.handleClick.bind(this);
+            return <div>Hello,<MyTitle title={this.state.name}/><button onClick={this.handleClick}>点我</button></div>;
         }
     });
 
